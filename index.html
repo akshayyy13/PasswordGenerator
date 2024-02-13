@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+
+    <link rel="stylesheet" href="./main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div
+      class="wrapper bg-gradient-to-r from-[#4B0F6D] to-[#1B0A30] h-[100vh] flex justify-center items-center"
+    >
+      <div class="container flex flex-col max-w-[450px] w-[90%]">
+
+        <!-- Heading -->
+        <h1
+          class="text-white opacity-75 uppercase text-center leading-5 tracking-wider text-2xl font-bold"
+        >
+          PASSWORD GENERATOR
+        </h1>
+        
+        <!-- First box -->
+        <div
+          class="passwordContainer bg-[var(--dk-violet)] relative border-b-[var(--lt-violet2)] rounded-2xl border-b-[0.35rem] mt-4 mb-4 pt-1"
+        >
+          <input
+            readonly
+            placeholder="Password"
+            data-passwordDisplay
+            class="bg-transparent w-[100%] p-4 pr-12 text-2xl text-[var(--vb-yellow)] placeholder:absolute, uppercase, top-[50%], left-6, opacity-60, text-[var(--vb-yellow)], translate-y-[-50%], leading-7"
+          />
+          <button class="copyBtn absolute top-[50%] right-6 translate-y-[-60%]">
+            <span
+              class="tooltip absolute -top-9 -left-6 text-[var(--vb-yellow)] bg-[var(--vb-violet2)] px-2 py-1 rounded-2xl transition-all origin-center duration-250 ease-in-out scale-0 opacity-0"
+              ></span
+            >
+            <img src="./assets/copy.svg" alt="" class="" width="23px" />
+          </button>
+        </div>
+
+        <!-- Second Box -->
+        <div
+          class="heroContainer w-[100%] bg-[var(--dk-violet)] rounded-2xl p-8 border-b-[var(--lt-violet2)] border-b-[0.35rem]"
+        >
+          <div class="lengthBox flex flex-row justify-between items-center p4">
+            <p class="lengthText text-white text-2xl">Password Length</p>
+            <p class="lengthCount text-[var(--vb-yellow)] text-2xl">10</p>
+          </div>
+
+          <!-- Slider -->
+          <input
+            type="range"
+            min="1"
+            max="20"
+            class="slider appearance-none w-[100%] h-3 cursor-pointer bg-[var(--lt-violet)] rounded-2xl mt-8 mb-6 bg-gradient-to-r from-[var(--vb-violet)] to-[var(--vb-violet)] bg-no-repeat z-[-1]"
+            slider
+          />
+
+          <!-- Checkboxes -->
+          <div class="checkboxes">
+            <div class="box flex items-center mt-4 mb-4 gap-x-4" >
+              <input
+                type="checkbox"
+                name="uppercase"
+                id="uppercase"
+                class="appearance-none w-5 h-5 border border-[#00e0d1] rounded-md cursor-pointer relative checked:bg-[#00e0d1]"
+              />
+              <label for="uppercase" class="bg-transparent text-xl text-white"
+                >Includes Uppercase letters</label
+              >
+            </div>
+            <div class="box flex items-center mt-4 mb-4 gap-x-4" >
+              <input
+                type="checkbox"
+                name="lowercase"
+                id="lowercase"
+                class="appearance-none w-5 h-5 border border-[#00e0d1] rounded-md cursor-pointer relative checked:bg-[#00e0d1]"
+              />
+              <label for="lowercase" class="bg-transparent text-xl text-white"
+                >Includes Lowercase letters</label
+              >
+            </div>
+            <div class="box flex items-center mt-4 mb-4 gap-x-4" >
+              <input
+                type="checkbox"
+                name="numbers"
+                id="numbers"
+                class="appearance-none w-5 h-5 border border-[#00e0d1] rounded-md cursor-pointer relative checked:bg-[#00e0d1]"
+              />
+              <label for="numbers" class="bg-transparent text-xl text-white"
+                >Includes Numbers</label
+              >
+            </div>
+            <div class="box flex items-center mt-4 mb-4 gap-x-4 " >
+              <input
+                type="checkbox"
+                name="symbols"
+                id="symbols"
+                class="appearance-none w-5 h-5 border border-[#00e0d1] rounded-md cursor-pointer relative checked:bg-[#00e0d1]"
+              />
+              <label for="symbols" class="bg-transparent text-xl text-white"
+                >Includes Symbols</label
+              >
+            </div>
+          </div>
+
+          <!-- Strength -->
+          <div
+            class="strengthContainer flex justify-between items-center mb-8 mt-7"
+          >
+            <p class="text-2xl text-white">Strength</p>
+            <div class="indicator w-5 h-5 rounded-[50%] bg-gray-400"></div>
+          </div>
+
+          <!-- Generate password -->
+          <button
+            class="w-[100%] pt-4 pb-4 bg-[var(--vb-violet)] text-center rounded-xl uppercase text-xl font-semibold text-[var(--vb-yellow)] border-b-[var(--vb-yellow)] border-b-[0.35rem]"
+            generateBtn
+          >
+            Generate Password
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
